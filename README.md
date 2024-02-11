@@ -1,6 +1,6 @@
 # Ismael Resume Website 
 
-![ReactJS Resume Website Template](resume-screenshot.png?raw=true 'ReactJS Resume Website Template')
+![Ismael Resume Website](resume-screenshot.png?raw=true 'ReactJS Resume Website')
 
 <div align="center">
 
@@ -19,4 +19,5 @@
 
 ## Description
 
-This is my personal static resume website based on React. Built with typescript in the Next.js framework, styled with Tailwind css, and populated with data from a single file, you can easily grab this repo to create, customise and host your own personal website in minutes. Even better, the site is fully mobile optimised and server-side rendered to ensure fast loading and a clean user interface on any device.
+This is my personal static resume [website](https://ismaeldev-kappa.vercel.app/) based on React. Built with typescript in the Next.js framework, styled with Tailwind css, and populated with data from a single file, you can easily grab this repo to create, customise and host your own personal website in minutes. Even better, the site is fully mobile optimised and server-side rendered to ensure fast loading and a clean user interface on any device.
+

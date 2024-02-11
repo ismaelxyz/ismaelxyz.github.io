@@ -44,7 +44,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: 'Ismael Resume',
-  description: "My professional resume is available to everyone",
+  description: 'My professional resume is available to everyone',
 };
 
 /**
@@ -72,10 +72,14 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I am a Venezuelan <strong className="text-stone-100">Software Engineer</strong> that can work with <strong className="text-stone-100">different technologies</strong> and levels of an application regardless of the platform. For example, I can create the design and interaction of the website (front-end), the logic and infrastructure behind it (back-end), and automate processes with robots (RPA).
+        I am a Venezuelan <strong className="text-stone-100">Software Engineer</strong> that can work with{' '}
+        <strong className="text-stone-100">different technologies</strong> and levels of an application regardless of
+        the platform. For example, I can create the design and interaction of the website (front-end), the logic and
+        infrastructure behind it (back-end), and automate processes with robots (RPA).
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time I love to read books, visit new quiet places, play video games or just listen to classical music.
+        In my free time I love to read books, visit new quiet places, play video games or just listen to classical
+        music.
       </p>
     </>
   ),
@@ -201,18 +205,18 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'Experience leading teams',
-        level: 4
+        level: 4,
       },
       {
         name: 'Delegating resources',
-        level: 4
+        level: 4,
       },
       {
         name: 'Project management',
-        level: 4
-      }
-    ]
-  }
+        level: 4,
+      },
+    ],
+  },
 ];
 
 /**
@@ -306,7 +310,8 @@ export const experience: TimelineItem[] = [
     title: 'Junior RPA Developer',
     content: (
       <p>
-        I've mainly worked on RPA using tools like Playwright and Python-o365 among others, as well as occasionally working on the backend with Django and FastAPI.
+        I've mainly worked on RPA using tools like Playwright and Python-o365 among others, as well as occasionally
+        working on the backend with Django and FastAPI.
       </p>
     ),
   },
@@ -316,7 +321,10 @@ export const experience: TimelineItem[] = [
     title: 'Mobile and web developer',
     content: (
       <p>
-       As a freelance developer, I specialize in developing dynamic websites using JavaScript (Next.js and React) for the frontend and Python (Django, Flask and FastApi) for the backend. I also have experience in Android app development using Flutter. I excel at taking requirements, designing and implementing custom solutions for each project. I am committed to technical excellence and customer satisfaction at all stages of development.
+        As a freelance developer, I specialize in developing dynamic websites using JavaScript (Next.js and React) for
+        the frontend and Python (Django, Flask and FastApi) for the backend. I also have experience in Android app
+        development using Flutter. I excel at taking requirements, designing and implementing custom solutions for each
+        project. I am committed to technical excellence and customer satisfaction at all stages of development.
       </p>
     ),
   },
