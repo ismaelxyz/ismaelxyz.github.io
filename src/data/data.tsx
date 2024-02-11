@@ -292,39 +292,31 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
-  },
-  {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'January 2020',
+    location: 'UPTBAL',
+    title: 'Computer Engineering',
+    content: <p>Regular student, learning UML, mathematics, software architecture among other subjects.</p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'January 2023 - December 2023',
+    location: 'Sempiterno Group',
+    title: 'Junior RPA Developer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        I've mainly worked on RPA using tools like Playwright and Python-o365 among others, as well as occasionally working on the backend with Django and FastAPI.
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: 'February 2021 - January 2023',
+    location: 'Freelance Developer',
+    title: 'Mobile and web developer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+       As a freelance developer, I specialize in developing dynamic websites using JavaScript (Next.js and React) for the frontend and Python (Django, Flask and FastApi) for the backend. I also have experience in Android app development using Flutter. I excel at taking requirements, designing and implementing custom solutions for each project. I am committed to technical excellence and customer satisfaction at all stages of development.
       </p>
     ),
   },
