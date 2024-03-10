@@ -103,9 +103,28 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: (<>
+  <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+    Greetings! My name is Ismael Belisario. I am a <strong className="text-stone-100">Software Developer</strong> from the Bolivarian Republic of Venezuela, a country rich in culture and diversity. Since my childhood, I have been surrounded by inspiration and motivation, thanks to my parents, both education professionals, who have instilled in me the importance of perseverance and personal growth.
+  </p>
+  <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+    My journey into the world of programming began when I was 14 years old, in 2010. Back then, my learning was based on reading technical books, as I didn't have access to the internet very often. Those days of self-taught study taught me not only about algorithms and programming languages, but also about resilience and determination.
+  </p>
+  <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+    Over time, my arsenal of skills has grown exponentially. I have embraced technological evolution, adapting and expanding my knowledge in areas such as <strong className="text-stone-100">test-driven development (TDD), data structures, frameworks, the intricate worlds of interpreters and compilers</strong>, among other topics.
+  </p>
+  
+  <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+    Today, I pride myself on having a solid technical background and a burning passion for my profession. I have had the privilege of developing <strong className="text-stone-100">websites</strong> and <strong className="text-stone-100">mobile applications</strong>, as well as implementing process automation (<strong className="text-stone-100">RPA</strong>), with a particular focus on optimising administrative tasks.
+  </p>
+  
+  <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+    My commitment to best practices and design patterns is unwavering, and my thirst for knowledge is unquenchable. I am convinced that learning is a never-ending journey, and each new project is an opportunity to explore unknown horizons.
+  </p>
+  <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+    I look forward to the possibility of collaborating on your project. Together, we can take your ideas to new heights and achieve success - let's make your vision a reality😊!
+  </p>
+  </>),
   aboutItems: [
     {label: 'Location', text: 'Higuerote, Miranda', Icon: MapIcon},
     {label: 'Age', text: `${new Date().getFullYear() - 2002}`, Icon: CalendarIcon},
