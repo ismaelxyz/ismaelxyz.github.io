@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { FC, ForwardRefExoticComponent, SVGProps } from "react";
+import type { FC, ForwardRefExoticComponent, ReactNode, SVGProps } from "react";
 
 import { IconProps } from "../components/Icon/Icon";
 
@@ -23,7 +23,7 @@ export interface HomepageMeta {
 export interface Hero {
   imageSrc: string;
   name: string;
-  description: JSX.Element;
+  description: ReactNode;
   actions: HeroActionItem[];
 }
 
@@ -39,7 +39,7 @@ interface HeroActionItem {
  */
 export interface About {
   profileImageSrc?: string;
-  description: JSX.Element;
+  description: ReactNode;
   aboutItems: AboutItem[];
 }
 
@@ -90,7 +90,7 @@ export interface TimelineItemProps {
   date: string;
   location: string;
   title: string;
-  content: JSX.Element;
+  content: ReactNode;
 }
 
 /**
@@ -137,8 +137,8 @@ export interface ContactItem {
 
 export interface ContactValue {
   Icon:
-    | FC<IconProps>
-    | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref">>;
+  | FC<IconProps>
+  | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref">>;
   srLabel: string;
 }
 

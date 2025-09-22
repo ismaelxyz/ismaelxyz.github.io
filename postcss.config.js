@@ -1,13 +1,12 @@
 /* eslint-env node */
 
+// Tailwind CSS v4 no requiere plugins extra de nesting ni preset-env.
+// Mantenemos solo tailwindcss + autoprefixer y minificación en producción.
+
 module.exports = {
   plugins: {
-    'tailwindcss/nesting': {},
-    tailwindcss: {},
+    '@tailwindcss/postcss': {},
     autoprefixer: {},
-    'postcss-preset-env': {
-      features: {'nesting-rules': false},
-    },
-    ...(process.env.NODE_ENV === 'production' ? {cssnano: {}} : {}),
+    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}),
   },
 };
