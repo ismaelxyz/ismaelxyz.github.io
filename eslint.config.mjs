@@ -20,6 +20,19 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  // Allow CommonJS-style requires in Node config files (Tailwind, PostCSS, Next, etc.)
+  {
+    files: [
+      "*.config.js",
+      "next-sitemap.js",
+      "next.config.js",
+      "postcss.config.js",
+      "tailwind.config.js",
+    ],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

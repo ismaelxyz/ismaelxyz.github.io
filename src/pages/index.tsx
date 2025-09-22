@@ -11,7 +11,6 @@ import Resume from "../components/Sections/Resume";
 import Testimonials from "../components/Sections/Testimonials";
 import { homePageMeta } from "../data/data";
 
-
 const Header = dynamic(() => import("../components/Sections/Header"), {
   ssr: false,
 });
