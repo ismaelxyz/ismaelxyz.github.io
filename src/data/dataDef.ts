@@ -137,8 +137,8 @@ export interface ContactItem {
 
 export interface ContactValue {
   Icon:
-  | FC<IconProps>
-  | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref">>;
+    | FC<IconProps>
+    | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref">>;
   srLabel: string;
 }
 

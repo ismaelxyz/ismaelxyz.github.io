@@ -1,20 +1,11 @@
 /* eslint-env node */
 
-// https://github.com/vercel/next.js/blob/master/packages/next/next-server/server/config.ts
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: config => {
-    const oneOfRule = config.module.rules.find(rule => rule.oneOf);
+  // Configure Turbopack (no custom rules needed for this project)
+  turbopack: {},
 
-    // Next 12 has multiple TS loaders, and we need to update all of them.
-    const tsRules = oneOfRule.oneOf.filter(rule => rule.test && rule.test.toString().includes('tsx|ts'));
-
-    tsRules.forEach(rule => {
-
-      rule.include = undefined;
-    });
-
-    return config;
-  },
+  // Standard Next.js options
   compress: true,
   generateEtags: true,
   pageExtensions: ['tsx', 'mdx', 'ts'],
