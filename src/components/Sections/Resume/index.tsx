@@ -14,19 +14,35 @@ const Resume: FC = memo(() => {
       <div className="flex flex-col divide-y-2 divide-neutral-300">
         <ResumeSection title={t("sections.resume_education")}>
           {education.map((item, index) => {
-            const translated = {
-              ...item,
-              title: t(`education.items.${index}.title`, {
-                defaultValue: item.title,
-              }),
-              location: t(`education.items.${index}.location`, {
-                defaultValue: item.location,
-              }),
-              date: t(`education.items.${index}.date`, {
-                defaultValue: item.date,
-              }),
-              content: <p>{t(`education.items.${index}.content`)}</p>,
-            };
+            const title = t(`education.items.${index}.title`, {
+              defaultValue: item.title,
+            });
+            const location = t(`education.items.${index}.location`, {
+              defaultValue: item.location,
+            });
+            const date = t(`education.items.${index}.date`, {
+              defaultValue: item.date,
+            });
+            const contentStr = t(`education.items.${index}.content`, {
+              defaultValue: "",
+            });
+            const content = contentStr
+              ? (
+                <>
+                  {contentStr
+                    .split(/\n{2,}/)
+                    .map((para, i) => (
+                      <p
+                        key={i}
+                        className="pb-4 last:pb-0 whitespace-pre-line"
+                      >
+                        {para}
+                      </p>
+                    ))}
+                </>
+              )
+              : item.content;
+            const translated = { ...item, title, location, date, content };
             return (
               <TimelineItem item={translated} key={`${item.title}-${index}`} />
             );
@@ -34,19 +50,35 @@ const Resume: FC = memo(() => {
         </ResumeSection>
         <ResumeSection title={t("sections.resume_work")}>
           {experience.map((item, index) => {
-            const translated = {
-              ...item,
-              title: t(`experience.items.${index}.title`, {
-                defaultValue: item.title,
-              }),
-              location: t(`experience.items.${index}.location`, {
-                defaultValue: item.location,
-              }),
-              date: t(`experience.items.${index}.date`, {
-                defaultValue: item.date,
-              }),
-              content: <p>{t(`experience.items.${index}.content`)}</p>,
-            };
+            const title = t(`experience.items.${index}.title`, {
+              defaultValue: item.title,
+            });
+            const location = t(`experience.items.${index}.location`, {
+              defaultValue: item.location,
+            });
+            const date = t(`experience.items.${index}.date`, {
+              defaultValue: item.date,
+            });
+            const contentStr = t(`experience.items.${index}.content`, {
+              defaultValue: "",
+            });
+            const content = contentStr
+              ? (
+                <>
+                  {contentStr
+                    .split(/\n{2,}/)
+                    .map((para, i) => (
+                      <p
+                        key={i}
+                        className="pb-4 last:pb-0 whitespace-pre-line"
+                      >
+                        {para}
+                      </p>
+                    ))}
+                </>
+              )
+              : item.content;
+            const translated = { ...item, title, location, date, content };
             return (
               <TimelineItem item={translated} key={`${item.title}-${index}`} />
             );

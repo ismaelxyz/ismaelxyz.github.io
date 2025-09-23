@@ -189,11 +189,11 @@ export const skills: SkillGroup[] = [
       },
       {
         name: "Italian",
-        level: 4,
+        level: 6,
       },
       {
         name: "English",
-        level: 4,
+        level: 5,
       },
     ],
   },
@@ -370,15 +370,117 @@ export const education: TimelineItemProps[] = [
 
 export const experience: TimelineItemProps[] = [
   {
+    date: "August 2025 - September 2025",
+    location: "Hornstromp",
+    title: "Backend Developer",
+    content: (
+      <>
+        <p>
+          I worked as a backend developer, participating in the design,
+          construction, and maintenance of robust and scalable services. In
+          particular, I integrated AI solutions via OpenAI APIs and platforms
+          like OpenRouter, building conversational flows, natural language
+          processing pipelines, and recommendation systems that responded
+          dynamically to user needs.
+        </p>
+        <br />
+        <p>
+          Throughout these projects, I implemented service-oriented
+          architectures and handled authentication, authorization, error
+          handling, and data persistence securely and efficiently. I also
+          designed high‑performance, low‑latency endpoints to ensure smooth
+          communication between system components.
+        </p>
+        <br />
+        <p>
+          To guarantee code quality, I incorporated automated tests at multiple
+          levels (unit, integration, and functional), along with static analysis
+          to detect errors, inconsistencies, and improvement opportunities
+          before deployment. These practices helped maintain clean and
+          maintainable code aligned with professional standards.
+        </p>
+        <br />
+        <p>
+          In addition, I participated in CI/CD workflows to ensure every change
+          passed automated validations before reaching production. Combined with
+          code reviews and clear technical documentation, this contributed to
+          the stability and continuous evolution of the backend systems I
+          developed.
+        </p>
+      </>
+    ),
+  },
+  {
+    date: "January 2024 - June 2025",
+    location: "Netsocs LLC",
+    title: "Full Stack Developer",
+    content: (
+      <>
+        <p>
+          I worked as a Full Stack Developer, actively participating across the
+          entire software development lifecycle—from requirements gathering and
+          architecture design to implementation, testing, deployment, and
+          maintenance. I contributed to both the frontend and backend, ensuring
+          the solutions were functional, scalable, and aligned with project
+          goals.
+        </p>
+        <br />
+        <p>
+          I collaborated on building dynamic, accessible user interfaces and
+          robust server-side systems. I worked in agile environments where clear
+          communication across multidisciplinary teams, code reviews, and solid
+          documentation were key to delivering quality products.
+        </p>
+        <br />
+        <p>
+          I integrated quality assurance practices such as automated testing
+          (unit, integration, and end-to-end), static code analysis to detect
+          issues early and maintain style standards, and CI/CD pipelines that
+          enabled safe and efficient validation and deployment of changes. I
+          also participated in deployments using containers and Kubernetes
+          orchestration, improving scalability, resilience, and production
+          monitoring.
+        </p>
+        <br />
+        <p>
+          My focus was always on building maintainable, reliable, and
+          user-centered software, with a technical mindset that balances
+          performance, security, and continuous evolution.
+        </p>
+      </>
+    ),
+  },
+  {
     date: "January 2023 - December 2023",
     location: "Sempiterno Group",
-    title: "Junior RPA Developer",
+    title: "RPA Developer",
     content: (
-      <p>
-        I&apos;ve mainly worked on RPA using tools like Playwright and
-        Python-o365 among others, as well as occasionally working on the backend
-        with Django and FastAPI.
-      </p>
+      <>
+        <p>
+          I primarily worked on RPA development, using tools such as Playwright for
+          browser automation and Python-o365 to interact with Microsoft services like
+          Outlook, SharePoint, and Teams. I implemented automated workflows that
+          extracted, transformed, and synchronized data across platforms, often
+          incorporating testing routines to validate functionality and ensure
+          reliability.
+        </p>
+        <br />
+        <p>
+          On the backend, I contributed using Django and FastAPI, building APIs that
+          supported bot orchestration and secure data exchange. I deployed several of
+          these solutions on Google Cloud Platform (GCP), leveraging services like
+          Cloud Functions, Pub/Sub, and Connectivity Tests to enable scalable,
+          event-driven automation. I also configured environments in Microsoft Azure to
+          support unattended RPA execution and integrated SharePoint for document
+          management, metadata tagging, and workflow triggers.
+        </p>
+        <br />
+        <p>
+          Throughout these projects, I focused on automating repetitive tasks,
+          improving operational efficiency, and ensuring seamless integration between
+          cloud services and enterprise tools.
+        </p>
+      </>
     ),
   },
   {
@@ -386,15 +488,41 @@ export const experience: TimelineItemProps[] = [
     location: "Freelance Developer",
     title: "Mobile and web developer",
     content: (
-      <p>
-        As a freelance developer, I specialize in developing dynamic websites
-        using JavaScript (Next.js and React) for the frontend and Python
-        (Django, Flask and FastApi) for the backend. I also have experience in
-        Android app development using Flutter. I excel at taking requirements,
-        designing and implementing custom solutions for each project. I am
-        committed to technical excellence and customer satisfaction at all
-        stages of development.
-      </p>
+      <>
+        <p>
+          As a freelance developer, I specialized in building dynamic and
+          responsive websites, combining JavaScript frameworks like Next.js and
+          React for the frontend with Python-based technologies such as Django,
+          Flask, and FastAPI on the backend. I designed and implemented custom
+          solutions tailored to each client&apos;s needs, ensuring that both the user
+          experience and the underlying architecture were robust, scalable, and
+          maintainable.
+        </p>
+        <br />
+        <p>
+          In addition to web development, I gained experience in Android app
+          development using Flutter, where I created intuitive mobile interfaces
+          and integrated backend services to deliver seamless cross-platform
+          experiences. I was responsible for gathering requirements,
+          translating them into technical specifications, and executing
+          full-cycle development—from prototyping and UI/UX design to deployment
+          and post-launch support.
+        </p>
+        <br />
+        <p>
+          Throughout my freelance work, I remained committed to technical
+          excellence, incorporating automated testing (unit and integration) to
+          ensure code reliability and reduce regressions. I also worked with
+          cloud platforms like Google Cloud (GCP) and Microsoft Azure.
+        </p>
+        <br />
+        <p>
+          My approach emphasized clear communication, agile iteration, and a
+          deep focus on customer satisfaction, ensuring that each project not
+          only met functional requirements but also reflected a thoughtful and
+          elegant technical execution.
+        </p>
+      </>
     ),
   },
 ];
