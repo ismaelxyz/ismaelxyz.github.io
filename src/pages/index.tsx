@@ -19,6 +19,7 @@ const Header = dynamic(() => import("../components/Sections/Header"), {
 const Home: FC = memo(() => {
   const { t } = useTranslation();
   const { title, description } = homePageMeta;
+
   return (
     <Page
       description={description ?? t("meta.description")}

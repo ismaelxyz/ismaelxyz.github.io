@@ -222,7 +222,8 @@ const LanguageSwitcher: FC<{
   );
 
   const current = useMemo(
-    () => languages.find((l) => l.code === i18n.resolvedLanguage) ?? languages[0],
+    () =>
+      languages.find((l) => l.code === i18n.resolvedLanguage) ?? languages[0],
     [i18n.resolvedLanguage, languages],
   );
 
@@ -233,7 +234,9 @@ const LanguageSwitcher: FC<{
   return (
     <Menu as="div" className="relative inline-block text-left">
       <MenuButton
-        aria-label={t("ui.language_selector", { defaultValue: "Language selector" })}
+        aria-label={t("ui.language_selector", {
+          defaultValue: "Language selector",
+        })}
         className="inline-flex items-center gap-2 rounded-md bg-transparent px-2.5 py-1.5 text-sm font-medium text-neutral-100 focus:outline-none focus-visible:ring-2 "
       >
         <LanguageIcon className="h-5 w-5 text-neutral-200" aria-hidden="true" />
@@ -266,7 +269,9 @@ const LanguageSwitcher: FC<{
                   onClick={() => onSelect(lng.code)}
                 >
                   <span>{lng.label}</span>
-                  <span className="text-xs uppercase text-neutral-400">{lng.code}</span>
+                  <span className="text-xs uppercase text-neutral-400">
+                    {lng.code}
+                  </span>
                 </button>
               )}
             </MenuItem>
