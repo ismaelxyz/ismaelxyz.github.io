@@ -110,7 +110,9 @@
       "name": "Nombre",
       "email": "Correo",
       "message": "Mensaje",
-      "submit": "Enviar Mensaje"
+      "submit": "Enviar Mensaje",
+      "success": "Tu mensaje ha sido enviado con éxito.",
+      "error": "No pudimos enviar tu mensaje. Por favor, inténtalo de nuevo."
     }
   },
   "footer": {

@@ -1,5 +1,6 @@
 import { FC, memo, useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { sendContactEmail } from "@/services/email";
 
 interface FormData {
   name: string;
@@ -19,6 +20,9 @@ const ContactForm: FC = memo(() => {
   );
 
   const [data, setData] = useState<FormData>(defaultData);
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const onChange = useCallback(
     <T extends HTMLInputElement | HTMLTextAreaElement>(
@@ -36,12 +40,25 @@ const ContactForm: FC = memo(() => {
   const handleSendMessage = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      /**
-       * This is a good starting point to wire up your form submission logic
-       * */
-      console.log("Data to send: ", data);
+      setSending(true);
+      setStatus("idle");
+      setErrorMsg(null);
+
+      try {
+        await sendContactEmail(data);
+        setStatus("success");
+        setData(defaultData);
+      } catch (err) {
+        console.error("Failed to send contact message", err);
+        setStatus("error");
+        setErrorMsg(
+          err instanceof Error ? err.message : "Unexpected error occurred",
+        );
+      } finally {
+        setSending(false);
+      }
     },
-    [data],
+    [data, defaultData],
   );
 
   const inputClasses =
@@ -81,11 +98,27 @@ const ContactForm: FC = memo(() => {
       />
       <button
         aria-label="Submit contact form"
-        className="w-max rounded-full border-2 border-orange-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-none hover:bg-stone-800 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-800"
+        className="w-max rounded-full border-2 border-orange-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-none hover:bg-stone-800 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-800 disabled:cursor-not-allowed disabled:opacity-60"
         type="submit"
+        disabled={sending}
       >
-        {t("contact.form.submit")}
+        {sending ? t("contact.form.submit") + "…" : t("contact.form.submit")}
       </button>
+      {status === "success" && (
+        <p className="mt-2 text-sm text-green-400">
+          {t("contact.form.success", {
+            defaultValue: "Your message has been sent successfully.",
+          })}
+        </p>
+      )}
+      {status === "error" && (
+        <p className="mt-2 text-sm text-red-400">
+          {t("contact.form.error", {
+            defaultValue: "We couldn't send your message. Please try again.",
+          })}
+          {errorMsg ? ` (${errorMsg})` : null}
+        </p>
+      )}
     </form>
   );
 });

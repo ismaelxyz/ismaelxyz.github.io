@@ -13,8 +13,8 @@ const TimelineItem: FC<{ item: TimelineItemProps }> = memo(({ item }) => {
     <div className="flex flex-col pb-8 text-center last:pb-0 md:text-left">
       <div className="flex flex-col pb-4">
         <div className="flex items-center justify-center gap-3 md:justify-start">
-          {resolvedLogo && (
-            link ? (
+          {resolvedLogo &&
+            (link ? (
               <a
                 href={link}
                 target="_blank"
@@ -42,8 +42,7 @@ const TimelineItem: FC<{ item: TimelineItemProps }> = memo(({ item }) => {
                   priority={false}
                 />
               </div>
-            )
-          )}
+            ))}
           {link ? (
             <a
               href={link}

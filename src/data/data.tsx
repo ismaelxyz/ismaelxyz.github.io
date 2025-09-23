@@ -24,7 +24,7 @@ import porfolioImage8 from "../images/portfolio/portfolio-8.jpg";
 import porfolioImage9 from "../images/portfolio/portfolio-9.jpg";
 import porfolioImage10 from "../images/portfolio/portfolio-10.jpg";
 import porfolioImage11 from "../images/portfolio/portfolio-11.jpg";
-import profilepic from "../images/profilepic.jpg";
+// import profilepic from "../images/profilepic.jpg";
 import testimonialImage from "../images/testimonial.webp";
 import {
   About,
@@ -106,7 +106,7 @@ export const heroData: Hero = {
  * About section
  */
 export const aboutData: About = {
-  profileImageSrc: profilepic,
+  // profileImageSrc: profilepic,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
@@ -252,7 +252,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: "C#",
-        level: 3,
+        level: 5,
       },
       {
         name: "Java",
@@ -273,7 +273,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: "Project management",
-        level: 4,
+        level: 5,
       },
     ],
   },

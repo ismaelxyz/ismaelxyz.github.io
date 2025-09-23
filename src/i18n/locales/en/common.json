@@ -110,7 +110,9 @@
       "name": "Name",
       "email": "Email",
       "message": "Message",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "success": "Your message has been sent successfully.",
+      "error": "We couldn't send your message. Please try again."
     }
   },
   "footer": {
