@@ -16,7 +16,8 @@ const TimelineItem: FC<{ item: TimelineItemProps }> = memo(({ item }) => {
           <span className="flex-1 text-sm sm:flex-none">{date}</span>
         </div>
       </div>
-      {content}
+      {/* Typography wrapper to ensure paragraphs and line-height render with proper spacing */}
+      <div className="prose prose-stone max-w-none">{content}</div>
     </div>
   );
 });

@@ -457,28 +457,29 @@ export const experience: TimelineItemProps[] = [
     content: (
       <>
         <p>
-          I primarily worked on RPA development, using tools such as Playwright for
-          browser automation and Python-o365 to interact with Microsoft services like
-          Outlook, SharePoint, and Teams. I implemented automated workflows that
-          extracted, transformed, and synchronized data across platforms, often
-          incorporating testing routines to validate functionality and ensure
-          reliability.
+          I primarily worked on RPA development, using tools such as Playwright
+          for browser automation and Python-o365 to interact with Microsoft
+          services like Outlook, SharePoint, and Teams. I implemented automated
+          workflows that extracted, transformed, and synchronized data across
+          platforms, often incorporating testing routines to validate
+          functionality and ensure reliability.
         </p>
         <br />
         <p>
-          On the backend, I contributed using Django and FastAPI, building APIs that
-          supported bot orchestration and secure data exchange. I deployed several of
-          these solutions on Google Cloud Platform (GCP), leveraging services like
-          Cloud Functions, Pub/Sub, and Connectivity Tests to enable scalable,
-          event-driven automation. I also configured environments in Microsoft Azure to
-          support unattended RPA execution and integrated SharePoint for document
-          management, metadata tagging, and workflow triggers.
+          On the backend, I contributed using Django and FastAPI, building APIs
+          that supported bot orchestration and secure data exchange. I deployed
+          several of these solutions on Google Cloud Platform (GCP), leveraging
+          services like Cloud Functions, Pub/Sub, and Connectivity Tests to
+          enable scalable, event-driven automation. I also configured
+          environments in Microsoft Azure to support unattended RPA execution
+          and integrated SharePoint for document management, metadata tagging,
+          and workflow triggers.
         </p>
         <br />
         <p>
           Throughout these projects, I focused on automating repetitive tasks,
-          improving operational efficiency, and ensuring seamless integration between
-          cloud services and enterprise tools.
+          improving operational efficiency, and ensuring seamless integration
+          between cloud services and enterprise tools.
         </p>
       </>
     ),
@@ -494,19 +495,19 @@ export const experience: TimelineItemProps[] = [
           responsive websites, combining JavaScript frameworks like Next.js and
           React for the frontend with Python-based technologies such as Django,
           Flask, and FastAPI on the backend. I designed and implemented custom
-          solutions tailored to each client&apos;s needs, ensuring that both the user
-          experience and the underlying architecture were robust, scalable, and
-          maintainable.
+          solutions tailored to each client&apos;s needs, ensuring that both the
+          user experience and the underlying architecture were robust, scalable,
+          and maintainable.
         </p>
         <br />
         <p>
           In addition to web development, I gained experience in Android app
           development using Flutter, where I created intuitive mobile interfaces
           and integrated backend services to deliver seamless cross-platform
-          experiences. I was responsible for gathering requirements,
-          translating them into technical specifications, and executing
-          full-cycle development—from prototyping and UI/UX design to deployment
-          and post-launch support.
+          experiences. I was responsible for gathering requirements, translating
+          them into technical specifications, and executing full-cycle
+          development—from prototyping and UI/UX design to deployment and
+          post-launch support.
         </p>
         <br />
         <p>
