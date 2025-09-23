@@ -91,6 +91,10 @@ export interface TimelineItemProps {
   location: string;
   title: string;
   content: ReactNode;
+  /** Optional external link for the item (e.g., company page) */
+  link?: string;
+  /** Optional logo image for the item. Use a public path string (e.g., "/logos/xyz.png") or StaticImageData */
+  logoSrc?: string | StaticImageData;
 }
 
 /**
@@ -137,8 +141,8 @@ export interface ContactItem {
 
 export interface ContactValue {
   Icon:
-    | FC<IconProps>
-    | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref">>;
+  | FC<IconProps>
+  | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref">>;
   srLabel: string;
 }
 

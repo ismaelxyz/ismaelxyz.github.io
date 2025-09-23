@@ -373,6 +373,8 @@ export const experience: TimelineItemProps[] = [
     date: "August 2025 - September 2025",
     location: "Hornstromp",
     title: "Backend Developer",
+    link: "https://www.youtube.com/channel/UCF29-kPdav5NKPs6RUKNCxA",
+    logoSrc: "/logos/hornstromp-logo.jpg",
     content: (
       <>
         <p>
@@ -414,6 +416,8 @@ export const experience: TimelineItemProps[] = [
     date: "January 2024 - June 2025",
     location: "Netsocs LLC",
     title: "Full Stack Developer",
+    link: "https://www.linkedin.com/company/netsocsglobal/",
+    logoSrc: "/logos/netsocs-logo.png",
     content: (
       <>
         <p>
@@ -454,6 +458,8 @@ export const experience: TimelineItemProps[] = [
     date: "January 2023 - December 2023",
     location: "Sempiterno Group",
     title: "RPA Developer",
+    link: "https://www.linkedin.com/company/sempiterno-holding-group/",
+    logoSrc: "/logos/sempiterno_group_logo.jpeg",
     content: (
       <>
         <p>
@@ -488,6 +494,7 @@ export const experience: TimelineItemProps[] = [
     date: "February 2021 - January 2023",
     location: "Freelance Developer",
     title: "Mobile and web developer",
+    logoSrc: "/logos/freenlace-logo.png",
     content: (
       <>
         <p>
