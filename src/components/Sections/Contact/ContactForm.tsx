@@ -1,4 +1,5 @@
 import { FC, memo, useCallback, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface FormData {
   name: string;
@@ -7,6 +8,7 @@ interface FormData {
 }
 
 const ContactForm: FC = memo(() => {
+  const { t } = useTranslation();
   const defaultData = useMemo(
     () => ({
       name: "",
@@ -55,7 +57,7 @@ const ContactForm: FC = memo(() => {
         className={inputClasses}
         name="name"
         onChange={onChange}
-        placeholder="Name"
+        placeholder={t("contact.form.name")}
         required
         type="text"
       />
@@ -64,7 +66,7 @@ const ContactForm: FC = memo(() => {
         className={inputClasses}
         name="email"
         onChange={onChange}
-        placeholder="Email"
+        placeholder={t("contact.form.email")}
         required
         type="email"
       />
@@ -73,7 +75,7 @@ const ContactForm: FC = memo(() => {
         maxLength={250}
         name="message"
         onChange={onChange}
-        placeholder="Message"
+        placeholder={t("contact.form.message")}
         required
         rows={6}
       />
@@ -82,7 +84,7 @@ const ContactForm: FC = memo(() => {
         className="w-max rounded-full border-2 border-orange-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-none hover:bg-stone-800 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-800"
         type="submit"
       >
-        Send Message
+        {t("contact.form.submit")}
       </button>
     </form>
   );

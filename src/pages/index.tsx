@@ -10,15 +10,20 @@ import Portfolio from "../components/Sections/Portfolio";
 import Resume from "../components/Sections/Resume";
 import Testimonials from "../components/Sections/Testimonials";
 import { homePageMeta } from "../data/data";
+import { useTranslation } from "react-i18next";
 
 const Header = dynamic(() => import("../components/Sections/Header"), {
   ssr: false,
 });
 
 const Home: FC = memo(() => {
+  const { t } = useTranslation();
   const { title, description } = homePageMeta;
   return (
-    <Page description={description} title={title}>
+    <Page
+      description={description ?? t("meta.description")}
+      title={title ?? t("meta.title")}
+    >
       <Header />
       <Hero />
       <About />

@@ -1,8 +1,21 @@
-import { Dialog, Transition } from "@headlessui/react";
-import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
+import {
+  Dialog,
+  Transition,
+  TransitionChild,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from "@headlessui/react";
+import {
+  Bars3BottomRightIcon,
+  LanguageIcon,
+} from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import Link from "next/link";
 import { FC, Fragment, memo, useCallback, useMemo, useState } from "react";
+import type React from "react";
+import { useTranslation } from "react-i18next";
 
 import { SectionId } from "../../data/data";
 import { useNavObserver } from "../../hooks/useNavObserver";
@@ -10,6 +23,7 @@ import { useNavObserver } from "../../hooks/useNavObserver";
 export const headerID = "headerNav";
 
 const Header: FC = memo(() => {
+  const { t, i18n } = useTranslation();
   const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
   const navSections = useMemo(
     () => [
@@ -35,8 +49,18 @@ const Header: FC = memo(() => {
 
   return (
     <>
-      <MobileNav currentSection={currentSection} navSections={navSections} />
-      <DesktopNav currentSection={currentSection} navSections={navSections} />
+      <MobileNav
+        currentSection={currentSection}
+        navSections={navSections}
+        t={t}
+        i18n={i18n}
+      />
+      <DesktopNav
+        currentSection={currentSection}
+        navSections={navSections}
+        t={t}
+        i18n={i18n}
+      />
     </>
   );
 });
@@ -44,7 +68,9 @@ const Header: FC = memo(() => {
 const DesktopNav: FC<{
   navSections: SectionId[];
   currentSection: SectionId | null;
-}> = memo(({ navSections, currentSection }) => {
+  t: ReturnType<typeof useTranslation>["t"];
+  i18n: ReturnType<typeof useTranslation>["i18n"];
+}> = memo(({ navSections, currentSection, t, i18n }) => {
   const baseClass =
     "-m-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100";
   const activeClass = classNames(baseClass, "text-orange-500");
@@ -54,7 +80,7 @@ const DesktopNav: FC<{
       className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-4 backdrop-blur sm:block"
       id={headerID}
     >
-      <nav className="flex justify-center gap-x-8">
+      <nav className="flex items-center justify-center gap-x-8">
         {navSections.map((section) => (
           <NavItem
             activeClass={activeClass}
@@ -62,8 +88,10 @@ const DesktopNav: FC<{
             inactiveClass={inactiveClass}
             key={section}
             section={section}
+            t={t}
           />
         ))}
+        <LanguageSwitcher i18n={i18n} t={t} />
       </nav>
     </header>
   );
@@ -74,7 +102,9 @@ DesktopNav.displayName = "DesktopNav";
 const MobileNav: FC<{
   navSections: SectionId[];
   currentSection: SectionId | null;
-}> = memo(({ navSections, currentSection }) => {
+  t: ReturnType<typeof useTranslation>["t"];
+  i18n: ReturnType<typeof useTranslation>["i18n"];
+}> = memo(({ navSections, currentSection, t, i18n }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleOpen = useCallback(() => {
@@ -96,15 +126,15 @@ const MobileNav: FC<{
         onClick={toggleOpen}
       >
         <Bars3BottomRightIcon className="h-8 w-8 text-white" />
-        <span className="sr-only">Open sidebar</span>
+        <span className="sr-only">{t("ui.open_sidebar")}</span>
       </button>
-      <Transition.Root as={Fragment} show={isOpen}>
+      <Transition as={Fragment} show={isOpen}>
         <Dialog
           as="div"
           className="fixed inset-0 z-40 flex sm:hidden"
           onClose={toggleOpen}
         >
-          <Transition.Child
+          <TransitionChild
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
             enterFrom="opacity-0"
@@ -117,8 +147,8 @@ const MobileNav: FC<{
               className="fixed inset-0 bg-stone-900 bg-opacity-75"
               aria-hidden="true"
             />
-          </Transition.Child>
-          <Transition.Child
+          </TransitionChild>
+          <TransitionChild
             as={Fragment}
             enter="transition ease-in-out duration-300 transform"
             enterFrom="-translate-x-full"
@@ -137,13 +167,17 @@ const MobileNav: FC<{
                     key={section}
                     onClick={toggleOpen}
                     section={section}
+                    t={t}
                   />
                 ))}
+                <div className="px-2 py-2">
+                  <LanguageSwitcher i18n={i18n} t={t} />
+                </div>
               </nav>
             </div>
-          </Transition.Child>
+          </TransitionChild>
         </Dialog>
-      </Transition.Root>
+      </Transition>
     </>
   );
 });
@@ -156,7 +190,8 @@ const NavItem: FC<{
   activeClass: string;
   inactiveClass: string;
   onClick?: () => void;
-}> = memo(({ section, current, inactiveClass, activeClass, onClick }) => {
+  t: ReturnType<typeof useTranslation>["t"];
+}> = memo(({ section, current, inactiveClass, activeClass, onClick, t }) => {
   return (
     <Link
       className={classNames(current ? activeClass : inactiveClass)}
@@ -164,7 +199,7 @@ const NavItem: FC<{
       key={section}
       onClick={onClick}
     >
-      {section}
+      {t(`sections.${section.toLowerCase()}`)}
     </Link>
   );
 });
@@ -173,3 +208,72 @@ NavItem.displayName = "NavItem";
 
 Header.displayName = "Header";
 export default Header;
+
+const LanguageSwitcher: FC<{
+  i18n: ReturnType<typeof useTranslation>["i18n"];
+  t: ReturnType<typeof useTranslation>["t"];
+}> = memo(({ i18n, t }) => {
+  const languages = useMemo(
+    () => [
+      { code: "en", label: t("lang.en") },
+      { code: "es", label: t("lang.es") },
+    ],
+    [t],
+  );
+
+  const current = useMemo(
+    () => languages.find((l) => l.code === i18n.resolvedLanguage) ?? languages[0],
+    [i18n.resolvedLanguage, languages],
+  );
+
+  const onSelect = (lng: string) => {
+    void i18n.changeLanguage(lng);
+  };
+
+  return (
+    <Menu as="div" className="relative inline-block text-left">
+      <MenuButton
+        aria-label={t("ui.language_selector", { defaultValue: "Language selector" })}
+        className="inline-flex items-center gap-2 rounded-md bg-transparent px-2.5 py-1.5 text-sm font-medium text-neutral-100 focus:outline-none focus-visible:ring-2 "
+      >
+        <LanguageIcon className="h-5 w-5 text-neutral-200" aria-hidden="true" />
+        <span className="uppercase tracking-wide">{current.code}</span>
+      </MenuButton>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <MenuItems
+          anchor="bottom end"
+          className="z-50 mt-2 w-40 origin-top-right rounded-md bg-neutral-900/50 p-1 text-sm text-neutral-100 shadow-lg ring-1 ring-black/5 backdrop-blur focus:outline-none"
+        >
+          {languages.map((lng) => (
+            <MenuItem key={lng.code}>
+              {({ focus }) => (
+                <button
+                  type="button"
+                  className={classNames(
+                    "flex w-full items-center justify-between gap-2 rounded px-3 py-2",
+                    focus ? "bg-neutral-700/60 text-white" : "text-neutral-200",
+                    lng.code === current.code ? "font-semibold" : "font-normal",
+                  )}
+                  onClick={() => onSelect(lng.code)}
+                >
+                  <span>{lng.label}</span>
+                  <span className="text-xs uppercase text-neutral-400">{lng.code}</span>
+                </button>
+              )}
+            </MenuItem>
+          ))}
+        </MenuItems>
+      </Transition>
+    </Menu>
+  );
+});
+LanguageSwitcher.displayName = "LanguageSwitcher";

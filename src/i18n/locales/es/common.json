@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "Currículum de Ismael",
+    "description": "Mi currículum profesional está disponible para todos"
+  },
+  "sections": {
+    "about": "acerca de",
+    "resume": "resumen",
+    "portfolio": "portafolio",
+    "testimonials": "testimonios",
+    "contact": "contacto",
+    "about_title": "Sobre mí",
+    "portfolio_title": "Mira algunos de mis trabajos",
+    "resume_education": "Educación",
+    "resume_work": "Trabajo",
+    "resume_skills": "Habilidades"
+  },
+  "hero": {
+    "name": "Soy Ismael Belisario.",
+    "p1": "Soy un <1>Ingeniero de Software</1> venezolano que puede trabajar con <3>diferentes tecnologías</3> y niveles de una aplicación sin importar la plataforma. Por ejemplo, puedo crear el diseño e interacción del sitio web (front-end), la lógica e infraestructura detrás (back-end), y automatizar procesos con robots (RPA).",
+    "p2": "En mi tiempo libre me encanta leer libros, visitar nuevos lugares tranquilos, jugar videojuegos o simplemente escuchar música clásica.",
+    "resume": "Currículum",
+    "contact": "Contacto"
+  },
+  "about": {
+    "p1": "¡Saludos! Mi nombre es Ismael Belisario. Soy un <1>Desarrollador de Software</1> de la República Bolivariana de Venezuela, un país rico en cultura y diversidad. Desde mi infancia, he estado rodeado de inspiración y motivación, gracias a mis padres, ambos profesionales de la educación, quienes me han inculcado la importancia de la perseverancia y el crecimiento personal.",
+    "p2": "Mi camino en el mundo de la programación comenzó cuando tenía 14 años, en 2010. En ese entonces, mi aprendizaje se basaba en la lectura de libros técnicos, ya que no tenía acceso a internet con frecuencia. Esos días de estudio autodidacta me enseñaron no solo sobre algoritmos y lenguajes de programación, sino también sobre la resiliencia y la determinación.",
+    "p3": "Con el tiempo, mi arsenal de habilidades ha crecido exponencialmente. He abrazado la evolución tecnológica, adaptando y expandiendo mi conocimiento en áreas como <1>desarrollo guiado por pruebas (TDD), estructuras de datos, frameworks, y los complejos mundos de intérpretes y compiladores</1>, entre otros temas.",
+    "p4": "Hoy en día, me enorgullezco de tener una sólida base técnica y una ardiente pasión por mi profesión. He tenido el privilegio de desarrollar <1>sitios web</1> y <3>aplicaciones móviles</3>, así como de implementar la automatización de procesos (<5>RPA</5>), con un enfoque particular en la optimización de tareas administrativas.",
+    "p5": "Mi compromiso con las buenas prácticas y los patrones de diseño es inquebrantable, y mi sed de conocimiento es insaciable. Estoy convencido de que el aprendizaje es un viaje sin fin, y cada nuevo proyecto es una oportunidad para explorar horizontes desconocidos.",
+    "p6": "Espero con interés la posibilidad de colaborar en tu proyecto. Juntos, podemos llevar tus ideas a nuevas alturas y lograr el éxito. ¡Hagamos realidad tu visión😊!",
+    "Location": "Ubicación",
+    "Age": "Edad",
+    "Nationality": "Nacionalidad",
+    "Interests": "Intereses",
+    "Study": "Estudios"
+  },
+  "portfolio": {
+    "title": "Título del proyecto {{num}}",
+    "description": "Escribe aquí una breve descripción de tu proyecto.",
+    "url": "https://reactresume.com"
+  },
+  "resume": {
+    "skills_intro": "Estas competencias representan una muestra de mi perfil profesional, que he sintetizado para facilitar su comprensión. Sin embargo, mi experiencia laboral me ha brindado muchas más capacidades."
+  },
+  "education": {
+    "items": [
+      {
+        "date": "Enero 2020",
+        "location": "UPTBAL",
+        "title": "Ingeniería en Computación",
+        "content": "Estudiante regular, aprendiendo UML, matemáticas, arquitectura de software, entre otras materias."
+      }
+    ]
+  },
+  "experience": {
+    "items": [
+      {
+        "date": "Enero 2023 - Diciembre 2023",
+        "location": "Sempiterno Group",
+        "title": "Desarrollador RPA Junior",
+        "content": "Principalmente he trabajado en RPA usando herramientas como Playwright y Python-o365, entre otras, además de trabajar ocasionalmente en el backend con Django y FastAPI."
+      },
+      {
+        "date": "Febrero 2021 - Enero 2023",
+        "location": "Desarrollador Freelance",
+        "title": "Desarrollador web y móvil",
+        "content": "Como desarrollador freelance, me especializo en el desarrollo de sitios web dinámicos usando JavaScript (Next.js y React) para el frontend y Python (Django, Flask y FastApi) para el backend. También tengo experiencia en desarrollo de apps Android usando Flutter. Destaco en el levantamiento de requisitos, diseño e implementación de soluciones a medida para cada proyecto. Comprometido con la excelencia técnica y la satisfacción del cliente en todas las etapas del desarrollo."
+      }
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "name": "Juan Pérez",
+        "text": "Aprovecha esto como una oportunidad para mostrar cómo es trabajar contigo. Los testimonios de alto valor incluyen aquellos de compañeros, gerentes o clientes satisfechos.",
+        "image": "/unknow-user.png"
+      },
+      {
+        "name": "Jane Doe",
+        "text": "Aquí deberías escribir cosas agradables que alguien haya dicho sobre ti. Anímales a ser específicos e incluir detalles importantes (notas sobre un proyecto en el que trabajaron juntos, calidad impresionante, etc.).",
+        "image": "/unknow-user.png"
+      },
+      {
+        "name": "Alguien más",
+        "text": "Agrega varios de estos y mantenlos lo más actualizados posible, pero asegúrate de enfocarte en testimonios de calidad con fuertes resaltados de tus habilidades/ética de trabajo.",
+        "image": "/unknow-user.png"
+      }
+    ]
+  },
+  "contact": {
+    "header": "Ponte en contacto.",
+    "description": "Si has llegado hasta aquí, es una buena idea ponerte en contacto y comenzar a cooperar juntos.",
+    "email": "Correo",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Mensaje",
+      "submit": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "copyright": "Derechos de autor © {{year}} Ismael Belisario"
+  },
+  "ui": {
+    "open_sidebar": "Abrir barra lateral",
+    "menu": "Botón de Menú"
+  },
+  "lang": {
+    "en": "English",
+    "es": "Español"
+  },
+  "skillsNames": {
+    "Spoken languages": "Idiomas hablados",
+    "Spanish": "Español",
+    "Italian": "Italiano",
+    "English": "Inglés",
+    "Frontend development": "Desarrollo frontend",
+    "React": "React",
+    "Typescript": "Typescript",
+    "Mongo": "Mongo",
+    "SQL": "SQL",
+    "Backend development": "Desarrollo backend",
+    "Python": "Python",
+    "Rails": "Rails",
+    "Rust": "Rust",
+    "Node.js": "Node.js",
+    "Mobile development": "Desarrollo móvil",
+    "React Native": "React Native",
+    "Flutter": "Flutter",
+    "C#": "C#",
+    "Java": "Java",
+    "Management capabilities": "Capacidades de gestión",
+    "Experience leading teams": "Experiencia liderando equipos",
+    "Delegating resources": "Delegación de recursos",
+    "Project management": "Gestión de proyectos"
+  }
+}

@@ -10,6 +10,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useTranslation } from "react-i18next";
 
 import { isMobile } from "../../config";
 import { portfolioItems, SectionId } from "../../data/data";
@@ -18,11 +19,12 @@ import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
 import Section from "../Layout/Section";
 
 const Portfolio: FC = memo(() => {
+  const { t } = useTranslation();
   return (
     <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">
-          Check out some of my work
+          {t("sections.portfolio_title")}
         </h2>
         <div className=" w-full columns-2 md:columns-3 lg:columns-4">
           {portfolioItems.map((item, index) => {
@@ -40,7 +42,7 @@ const Portfolio: FC = memo(() => {
                     placeholder="blur"
                     src={image}
                   />
-                  <ItemOverlay item={item} />
+                  <ItemOverlay index={index} item={item} />
                 </div>
               </div>
             );
@@ -54,8 +56,9 @@ const Portfolio: FC = memo(() => {
 Portfolio.displayName = "Portfolio";
 export default Portfolio;
 
-const ItemOverlay: FC<{ item: PortfolioItem }> = memo(
-  ({ item: { url, title, description } }) => {
+const ItemOverlay: FC<{ item: PortfolioItem; index: number }> = memo(
+  ({ item: { url, title, description }, index }) => {
+    const { t } = useTranslation();
     const [mobile, setMobile] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
     const linkRef = useRef<HTMLAnchorElement>(null);
@@ -93,10 +96,10 @@ const ItemOverlay: FC<{ item: PortfolioItem }> = memo(
         <div className="relative h-full w-full p-4">
           <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
             <h2 className="text-center font-bold text-white opacity-100">
-              {title}
+              {t("portfolio.title", { num: index + 1, defaultValue: title })}
             </h2>
             <p className="text-xs text-white opacity-100 sm:text-sm">
-              {description}
+              {t("portfolio.description", { defaultValue: description })}
             </p>
           </div>
           <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 shrink-0 text-white sm:bottom-2 sm:right-2" />

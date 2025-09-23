@@ -10,6 +10,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useTranslation } from "react-i18next";
 
 import { isApple, isMobile } from "../../config";
 import { SectionId, testimonial } from "../../data/data";
@@ -21,6 +22,7 @@ import Section from "../Layout/Section";
 
 const Testimonials: FC = memo(() => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const { t } = useTranslation();
   const [scrollValue, setScrollValue] = useState(0);
   const [parallaxEnabled, setParallaxEnabled] = useState(false);
 
@@ -102,11 +104,20 @@ const Testimonials: FC = memo(() => {
             >
               {testimonials.map((testimonial, index) => {
                 const isActive = index === activeIndex;
+                const translated = {
+                  name: t(`testimonials.items.${index}.name`, {
+                    defaultValue: testimonial.name,
+                  }),
+                  text: t(`testimonials.items.${index}.text`, {
+                    defaultValue: testimonial.text,
+                  }),
+                  image: testimonial.image,
+                } as TestimonialProps;
                 return (
                   <Testimonial
                     isActive={isActive}
-                    key={`${testimonial.name}-${index}`}
-                    testimonial={testimonial}
+                    key={`${translated.name}-${index}`}
+                    testimonial={translated}
                   />
                 );
               })}
