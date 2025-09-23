@@ -16,9 +16,9 @@
     "resume_skills": "Habilidades"
   },
   "hero": {
-    "name": "Soy Ismael Belisario.",
-    "p1": "Soy un <1>Ingeniero de Software</1> venezolano que puede trabajar con <3>diferentes tecnologías</3> y niveles de una aplicación sin importar la plataforma. Por ejemplo, puedo crear el diseño e interacción del sitio web (front-end), la lógica e infraestructura detrás (back-end), y automatizar procesos con robots (RPA).",
-    "p2": "En mi tiempo libre me encanta leer libros, visitar nuevos lugares tranquilos, jugar videojuegos o simplemente escuchar música clásica.",
+    "name": "Soy Ismael Belisario",
+    "p1": "Soy Desarrollador de Software, nacido en Venezuela, y me especializo en comprender y construir cada capa de una aplicación como si fuera una arquitectura viva. Desde la experiencia del usuario hasta la lógica profunda que sostiene el sistema, me involucro en cada etapa del desarrollo con precisión y sensibilidad. No me limito a escribir código funcional: diseño soluciones que resuelven problemas reales, que se adaptan al entorno y que comunican intención. Trabajo con fluidez entre interfaces, estructuras internas y procesos automatizados, buscando siempre que la tecnología se sienta natural, útil y estéticamente coherente.",
+    "p2": "Fuera del trabajo, encuentro inspiración en la playa, los libros, los videojuegos y la música clásica. Son espacios donde la mente se aquieta y surgen nuevas formas de pensar.",
     "resume": "Currículum",
     "contact": "Contacto"
   },
@@ -114,6 +114,7 @@
     }
   },
   "footer": {
+    "madewithlove": "Hecho con ❤️",
     "copyright": "Derechos de autor © {{year}} Ismael Belisario"
   },
   "ui": {

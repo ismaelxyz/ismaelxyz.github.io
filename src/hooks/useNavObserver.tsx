@@ -8,59 +8,68 @@ export const useNavObserver = (
   handler: (section: SectionId | null) => void,
 ) => {
   useEffect(() => {
-    // Get all sections
     const headings = document.querySelectorAll(selectors);
     const headingsArray = Array.from(headings);
     const headerWrapper = document.getElementById(headerID);
 
-    // Create the IntersectionObserver API
+    const computeActive = () => {
+      if (!headerWrapper || headingsArray.length === 0) return;
+      const headerRect = headerWrapper.getBoundingClientRect();
+      const headerBottom = headerRect.bottom;
+      const positions = headingsArray.map((el) => ({
+        id: el.getAttribute("id"),
+        top: el.getBoundingClientRect().top,
+      }));
+
+      const aboveOrAtHeader = positions
+        .filter((p) => typeof p.id === "string")
+        .filter((p) => p.top <= headerBottom + 1)
+        .sort((a, b) => a.top - b.top);
+
+      const doc = document.documentElement;
+      const atBottom =
+        Math.ceil(window.innerHeight + window.scrollY) >=
+        (doc.scrollHeight || document.body.scrollHeight) - 2;
+
+      const activeId = atBottom
+        ? (positions[positions.length - 1]?.id ?? null)
+        : ((aboveOrAtHeader.length
+            ? aboveOrAtHeader[aboveOrAtHeader.length - 1].id
+            : positions[0]?.id) ?? null);
+
+      if (activeId) {
+        handler(activeId as SectionId);
+      }
+    };
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const currentY = entry.boundingClientRect.y;
-          const id = entry.target.getAttribute("id");
-          if (headerWrapper) {
-            // Create a decision object
-            const decision = {
-              id,
-              currentIndex: headingsArray.findIndex(
-                (heading) => heading.getAttribute("id") === id,
-              ),
-              isIntersecting: entry.isIntersecting,
-              currentRatio: entry.intersectionRatio,
-              aboveToc: currentY < headerWrapper.getBoundingClientRect().y,
-              belowToc: !(currentY < headerWrapper.getBoundingClientRect().y),
-            };
-            if (decision.isIntersecting) {
-              // Header at 30% from the top, update to current header
-              handler(decision.id as SectionId);
-            } else if (
-              !decision.isIntersecting &&
-              decision.currentRatio < 1 &&
-              decision.currentRatio > 0 &&
-              decision.belowToc
-            ) {
-              const currentVisible =
-                headingsArray[decision.currentIndex - 1]?.getAttribute("id");
-              handler(currentVisible as SectionId);
-            }
-          }
-        });
+      () => {
+        computeActive();
       },
       {
         root: null,
-        threshold: 0.1,
-        rootMargin: "0px 0px -70% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: "0px 0px -50% 0px",
       },
     );
     // Observe all the Sections
     headings.forEach((section) => {
       observer.observe(section);
     });
+    // Also compute on scroll and resize to handle smooth scroll and bottom edge cases
+    const onScroll = () => computeActive();
+    const onResize = () => computeActive();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+
+    // Initial compute so the correct section is set on mount
+    computeActive();
+
     // Cleanup
     return () => {
       observer.disconnect();
+      window.removeEventListener("scroll", onScroll as EventListener);
+      window.removeEventListener("resize", onResize as EventListener);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Dependency here is the post content.
+  }, [handler, selectors]);
 };

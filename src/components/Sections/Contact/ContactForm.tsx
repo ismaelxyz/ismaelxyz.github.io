@@ -45,7 +45,7 @@ const ContactForm: FC = memo(() => {
   );
 
   const inputClasses =
-    "bg-neutral-700 border-0 focus:border-0 focus:outline-none focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-sm";
+    "bg-neutral-700 border-0 focus:border-0 focus:outline-none focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-sm px-3 py-2 md:px-4 md:py-3";
 
   return (
     <form

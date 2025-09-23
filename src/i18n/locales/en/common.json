@@ -16,9 +16,9 @@
     "resume_skills": "Skills"
   },
   "hero": {
-    "name": "I'm Ismael Belisario.",
-    "p1": "I am a Venezuelan <1>Software Engineer</1> that can work with <3>different technologies</3> and levels of an application regardless of the platform. For example, I can create the design and interaction of the website (front-end), the logic and infrastructure behind it (back-end), and automate processes with robots (RPA).",
-    "p2": "In my free time I love to read books, visit new quiet places, play video games or just listen to classical music.",
+    "name": "I'm Ismael Belisario",
+    "p1": "I'm a Software Developer, born in Venezuela, and I specialize in understanding and building every layer of an application as if it were a living architecture. From the user experience to the deep logic that sustains the system, I get involved in every stage of development with precision and sensitivity. I don't just write functional code: I design solutions that solve real problems, adapt to their environment, and communicate intent. I move fluently across interfaces, internal structures, and automated processes, always seeking for technology to feel natural, useful, and aesthetically coherent.",
+    "p2": "Outside of work, I find inspiration at the beach, in books, video games, and classical music. These are spaces where the mind quiets and new ways of thinking emerge.",
     "resume": "Resume",
     "contact": "Contact"
   },
@@ -114,6 +114,7 @@
     }
   },
   "footer": {
+    "madewithlove": "Made with ❤️",
     "copyright": "Copyright © {{year}} Ismael Belisario"
   },
   "ui": {

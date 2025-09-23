@@ -23,7 +23,10 @@ const Footer: FC = memo(() => {
         <div className="flex gap-x-4 text-neutral-500">
           <Socials />
         </div>
-        <span className="text-sm text-neutral-700">
+        <span className="text-sm text-neutral-400">
+          {t("footer.madewithlove")}
+        </span>
+        <span className="text-sm text-neutral-400">
           {t("footer.copyright", { year: currentYear })}
         </span>
       </div>
