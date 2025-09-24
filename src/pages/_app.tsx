@@ -1,11 +1,11 @@
 import "../styles/tailwind.css";
-import "../globalStyles.scss";
+import "../styles/global.scss";
 
 import type { AppProps } from "next/app";
 import { memo, type ReactElement, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import "../i18n";
 import { Toaster } from "react-hot-toast";
+import "../i18n";
 
 const MyApp = memo(({ Component, pageProps }: AppProps): ReactElement => {
   const { i18n } = useTranslation();
