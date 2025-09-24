@@ -1,6 +1,7 @@
 import { FC, memo, useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sendContactEmail } from "@/services/email";
+import toast from "react-hot-toast";
 
 interface FormData {
   name: string;
@@ -21,8 +22,6 @@ const ContactForm: FC = memo(() => {
 
   const [data, setData] = useState<FormData>(defaultData);
   const [sending, setSending] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const onChange = useCallback(
     <T extends HTMLInputElement | HTMLTextAreaElement>(
@@ -32,33 +31,36 @@ const ContactForm: FC = memo(() => {
 
       const fieldData: Partial<FormData> = { [name]: value };
 
-      setData({ ...data, ...fieldData });
+      setData((prev) => ({ ...prev, ...fieldData }));
     },
-    [data],
+    [],
   );
 
   const handleSendMessage = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       setSending(true);
-      setStatus("idle");
-      setErrorMsg(null);
 
-      try {
-        await sendContactEmail(data);
-        setStatus("success");
-        setData(defaultData);
-      } catch (err) {
-        console.error("Failed to send contact message", err);
-        setStatus("error");
-        setErrorMsg(
-          err instanceof Error ? err.message : "Unexpected error occurred",
-        );
-      } finally {
-        setSending(false);
-      }
+      await toast
+        .promise(sendContactEmail(data), {
+          loading: t("contact.form.submit", { defaultValue: "Sending…" }),
+          success: t("contact.form.success", {
+            defaultValue: "Your message has been sent successfully.",
+          }),
+          error: (err) =>
+            `${t("contact.form.error", {
+              defaultValue: "We couldn't send your message. Please try again.",
+            })}${err?.message ? ` (${err.message})` : ""}`,
+        })
+        .then(() => {
+          setData(defaultData);
+        })
+        .catch((err: unknown) => {
+          console.error("Failed to send contact message", err);
+        })
+        .finally(() => setSending(false));
     },
-    [data, defaultData],
+    [data, defaultData, t],
   );
 
   const inputClasses =
@@ -75,6 +77,7 @@ const ContactForm: FC = memo(() => {
         name="name"
         onChange={onChange}
         placeholder={t("contact.form.name")}
+        value={data.name}
         required
         type="text"
       />
@@ -84,6 +87,7 @@ const ContactForm: FC = memo(() => {
         name="email"
         onChange={onChange}
         placeholder={t("contact.form.email")}
+        value={data.email}
         required
         type="email"
       />
@@ -93,6 +97,7 @@ const ContactForm: FC = memo(() => {
         name="message"
         onChange={onChange}
         placeholder={t("contact.form.message")}
+        value={data.message}
         required
         rows={6}
       />
@@ -104,21 +109,7 @@ const ContactForm: FC = memo(() => {
       >
         {sending ? t("contact.form.submit") + "…" : t("contact.form.submit")}
       </button>
-      {status === "success" && (
-        <p className="mt-2 text-sm text-green-400">
-          {t("contact.form.success", {
-            defaultValue: "Your message has been sent successfully.",
-          })}
-        </p>
-      )}
-      {status === "error" && (
-        <p className="mt-2 text-sm text-red-400">
-          {t("contact.form.error", {
-            defaultValue: "We couldn't send your message. Please try again.",
-          })}
-          {errorMsg ? ` (${errorMsg})` : null}
-        </p>
-      )}
+      {/* Toasts handle feedback; keep DOM clean */}
     </form>
   );
 });
